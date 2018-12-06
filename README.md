@@ -1,3 +1,8 @@
+
+![](https://upload-images.jianshu.io/upload_images/5640239-5f9063b2ac9ee80e.gif?imageMogr2/auto-orient/strip)
+
+这是一款计算情侣之间在一起的时间，每天，每周，每月的时间等。
+
 使用git将自己的小程序demo上传至github
 
 1:git init
