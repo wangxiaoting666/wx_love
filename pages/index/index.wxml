@@ -1,0 +1,109 @@
+<!--倒计时  --> 
+<view class="v-body">
+    <view class="v-canvas">
+        <canvas canvas-id="canvas_wi" style="{{canvas_style}}" class="myCanvas"/>
+    </view>
+    <view class="v-img">
+        <image src="../../img/heart_button.png" class="bt-img" bindtap="onClickImage" style="{{style_img}}"></image>
+    </view>
+  </view>
+<view class="content">
+  <!--轮播图--> 
+  <swiper class="swiper" style="height: {{imageHeight/3}}px; width:100%" indicator-dots="{{indicatorDots}}" current="{{current}}" circular="{{circular}}" indicator-active-color="{{indicatorActiveColor}}" indicator-color="{{indicatorColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" >  
+    <block wx:for="{{imgUrls}}" wx:key="">  
+      <swiper-item>  
+        <image class="slide-image" src="{{item.image}}" model="aspectFit" style="width: {{imageWidth}}px;" bindload="imageLoad" />  
+      </swiper-item>  
+    </block>  
+  </swiper>   
+  <!-- 情侣头像 -->
+  <view class="qlv-avatar">
+  	<view class="qlv-image-man">
+  		<image class="man-image" src="../../img/woman.png" />  
+  	</view>
+  	<view class="qlv-image-woman">
+  		<image class="man-image" src="../../img/man.png" />
+		</view>
+  </view>
+  <!-- 时间进度条 -->
+  <view class="time-loading">
+    <view class="time-left">    
+      <text class="week">今日</text>
+      <text>{{h}}点</text>
+    </view>
+    <view class="time-center">
+      <view class="center-text">当前<text class="week">{{h}}点</text>,今日还剩<text class="week">{{last_h}}</text>时</view>
+      <view class="progress">
+        <view class="progress-bar progress-bar-info progress-bar-striped active" style="width: {{h_spend}}%;">
+          <view class="progress-value">{{h_spend}}%</view>
+        </view>
+      </view>
+    </view>
+    <view class="time-right">
+      <text class="week">{{week_speed}}%</text>
+      <text>周日</text>
+    </view>
+  </view>
+  <view class="time-loading">
+    <view class="time-left">    
+      <text class="week">本周</text>
+      <text>周{{week_day}}</text>
+    </view>
+    <view class="time-center">
+      <view class="center-text">今天是<text class="week">周{{week_day}}</text>,本周还剩<text class="week">{{last_week}}</text>天</view>
+      <view class="progress">
+        <view class="progress-bar progress-bar-info progress-bar-striped active" style="width: {{week_speed}}%;">
+          <view class="progress-value">{{week_speed}}%</view>
+        </view>
+      </view>
+    </view>
+    <view class="time-right">
+      <text class="week">{{week_speed}}%</text>
+      <text>周日</text>
+    </view>
+  </view>
+  <view class="time-loading">
+    <view class="time-left">    
+      <text class="month">本月</text>
+      <text>{{months}}</text>
+    </view>
+    <view class="time-center">
+      <view class="center-text">今天是<text class="month">{{months}}月{{day}}日</text>,本月还剩<text class="month">{{last_month}}</text>天</view>
+      <view class="progress">
+        <view class="progress-bar progress-bar-success progress-bar-striped active" style="width: {{month_spend}}%;">
+          <view class="progress-value">{{month_spend}}%</view>
+        </view>
+      </view>
+    </view>
+    <view class="time-right">
+      <text class="month">{{month_spend}}%</text>
+      <text>{{nonth_total}}</text>
+    </view>
+  </view>
+  <view class="time-loading">
+    <view class="time-left">    
+      <text class="year">今年</text>
+      <text>{{newDay}}</text>
+    </view>
+    <view class="time-center">
+      <view class="center-text">今年已过去<text class="year">{{newDay}}</text>天,还剩<text class="year">{{last_Year}}</text>天</view>
+      <view class="progress">
+        <view class="progress-bar progress-bar-warning progress-bar-striped active" style="width: {{Year_spend}}%;">
+          <view class="progress-value">{{Year_spend}}%</view>
+        </view>
+      </view>
+    </view>
+    <view class="time-right">
+      <text class="year">{{Year_spend}}%</text>
+      <text>{{totalYear}}</text>
+    </view>
+  </view>
+  <!-- 时间计时器 -->
+  <view class="countDownTimeView" >  
+    <view class="countDownTimeText">{{countDownDay}}天</view>  
+    <view class="countDownTimeText">{{countDownHour}}时</view>  
+    <view class="countDownTimeText">{{countDownMinute}}分</view>  
+    <view class="countDownTimeText">{{countDownSecond}}秒</view>  
+    <view class="starTime">从2018年02月21日00:00开始</view>  
+  </view>   
+</view> 
